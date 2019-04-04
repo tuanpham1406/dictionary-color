@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Hi!!</title>
+    <form>
+        <fieldset>
+        <legend style="color: Red"><h1>Dictionary Color</h1></legend>
+        <input type="text" id ="txt" value="" >
+            <select id="dtn">
+                <option value = "ev">English-Việt</option>
+                <option value = "ve">Việt-English</option>
+            </select><br><br>
+            <button type="button" onclick="timkiem()" >Search</button>
+            <p id="result"></p>
+        </fieldset>
+    </form>
+</head>
+<body>
+<script>
+    let Eng = ["red","black","white","pink","yellow","green","blue","purple","silver","grey"];
+    let VN = ["đỏ","đen","trắng","hồng","màu vàng","xanh lá","xanh nước biển","màu tím","bạc","xám"];
+    function timkiem() {
+        let nhapVao = document.getElementById("txt").value;
+        switch (document.getElementById("dtn").value) {
+            case "ev":
+                let wordEng = 0;
+                for (let i = 0; i < Eng.length; i++){
+                    if (nhapVao === Eng[i]){
+                        document.getElementById("result").innerHTML = VN[i];
+                        wordEng++;
+                    }
+                }
+                if (wordEng != 1){
+                    document.getElementById("result").innerHTML = "Not found!!!";
+                }
+                break;
+            case "ve":
+                let wordViet = 0;
+                for (let i = 0; i < VN.length; i++){
+                    if (nhapVao === VN[i]){
+                        document.getElementById("result").innerHTML = Eng[i];
+                        wordViet++;
+                    }
+                }
+                if (wordViet != 1){
+                    document.getElementById("result").innerHTML = "Not found!!!";
+                }
+                break;
+        }
+    }
+</script>
+</body>
+</html>
